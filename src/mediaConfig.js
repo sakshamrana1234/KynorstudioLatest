@@ -1,19 +1,17 @@
-// Add final Cloudflare Stream iframe URLs and poster images here.
-// The site switches from placeholders automatically when an embedUrl is present.
 export const mediaConfig = {
   'penrose-claymation': {
-    embedUrl: '',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/0Xe9i6OjrNM?rel=0&playsinline=1',
     poster: '',
     alt: 'Penrose Skin claymation advertisement'
   },
   'notion-second-brain': {
-    embedUrl: '',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/7xboh7JUChY?rel=0&playsinline=1',
     poster: '',
     alt: 'Notion second-brain vertical concept advertisement'
   },
   'memzero-launch': {
-    embedUrl: '',
+    embedUrl: 'https://www.youtube-nocookie.com/embed/nKbitVwDCfk?rel=0&playsinline=1',
     poster: '',
-    alt: 'MemZero AI memory product-launch film'
+    alt: 'MemZero Gateway AI memory product-launch film'
   }
 }
