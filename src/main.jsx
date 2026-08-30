@@ -14,7 +14,75 @@ function Navigation({navigate}){return <><nav aria-label="Primary navigation"><I
 
 function OpeningJourney(){const ref=useRef(null),p=useLocalProgress(ref),posterFade=Math.max(0,1-p*4.4),markScale=.72+Math.pow(Math.max(0,p-.08),2.05)*10.4,markFade=p<.76?1:Math.max(.06,1-(p-.76)*4.5),inside=Math.max(0,1-Math.abs(p-.58)*8),philosophy=Math.max(0,(p-.76)*4.4);return <section ref={ref} className="opening-journey"><div className="opening-stage"><div className="identity-texture"/><div className="opening-glow" style={{transform:`translate(-50%,-50%) scale(${1+p*.7})`}}/><Mark className="opening-mark" style={{transform:`translate(-50%,-50%) scale(${markScale}) rotate(${-7+p*88}deg)`,opacity:markFade}}/><div className="poster-copy opening-poster" style={{opacity:posterFade,transform:`translate(-50%,calc(-50% - ${p*65}px)) scale(${1-p*.12})`}}><p className="poster-wordmark">KYNOR</p><p className="eyebrow">Independent creative studio / Working across markets and time zones</p><h1>We find what your brand should say—and build the creative to say it.</h1><p className="poster-intro">Kynor works across brand strategy, performance creative, scripts and AI-native production—turning clear direction into advertising designed to earn attention and action.</p></div><div className="opening-credit credit-a" style={{opacity:posterFade}}><span>01</span>Brand strategy &amp; identity</div><div className="opening-credit credit-b" style={{opacity:posterFade}}><span>02</span>Performance creative strategy</div><div className="opening-credit credit-c" style={{opacity:posterFade}}><span>03</span>Scripts &amp; creative angles</div><div className="opening-credit credit-d" style={{opacity:posterFade}}><span>04</span>AI-native ad production</div><div className="inside-copy" style={{opacity:inside,transform:`translate(-50%,${(p-.58)*-60}px)`}}><p className="eyebrow">Inside the interval</p><h2>Infinite output.<br/><span>Human direction.</span></h2></div><div className="philosophy-reveal" style={{opacity:philosophy}}><p className="eyebrow">The position</p><h2>Between what technology can generate—and what people choose to care about.</h2><p>Strategy, taste and human judgment turn modern production into creative that earns attention and action.</p></div><p className="opening-scroll">Scroll to enter the space between</p></div></section>}
 
-function WorkSpiral({navigate}){const ref=useRef(null),p=useLocalProgress(ref);return <section ref={ref} className="spiral-section" id="work"><div className="spiral-stage"><header><div><p className="eyebrow">Selected work / Scroll to rotate</p><h2>Ideas in orbit.</h2></div><InternalLink href="/work" navigate={navigate} className="view-work-link">View all work ↗</InternalLink></header><div className="spiral-scene">{projects.map((x,i)=>{const a=i*120-p*250,rad=a*Math.PI/180,z=Math.cos(rad),scale=.68+(z+1)*.2;return <button key={x.slug} onClick={()=>navigate(`/work/${x.slug}`)} className={`orbit-card art-${x.art}`} style={{transform:`translate(-50%,-50%) translate3d(${Math.sin(rad)*34}vw,${Math.sin(rad*.65)*14}vh,${z*360}px) rotateY(${-a}deg) scale(${scale})`,zIndex:Math.round((z+1)*10),opacity:.3+(z+1)*.35}} aria-label={`Open ${x.name} case study`}><span className="orbit-no">{x.no}</span><span className="orbit-title">{x.name}</span><span className="orbit-meta">{x.meta}</span></button>})}</div><div className="spiral-caption"><span>{projects[Math.min(2,Math.floor(p*3))].classification}</span><span>Select a frame to enter the project</span></div></div></section>}
+function WorkSpiral({navigate}) {
+  const ref = useRef(null)
+  const p = useLocalProgress(ref)
+
+  return (
+    <section ref={ref} className="spiral-section" id="work">
+      <div className="spiral-stage">
+        <header>
+          <div>
+            <p className="eyebrow">Selected work / Scroll to rotate</p>
+            <h2>Ideas in orbit.</h2>
+          </div>
+
+          <InternalLink
+            href="/work"
+            navigate={navigate}
+            className="view-work-link"
+          >
+            View all work ↗️
+          </InternalLink>
+        </header>
+
+        <div className="spiral-scene">
+          {projects.map((x, i) => {
+            const a = i * 120 - p * 250
+            const rad = a * Math.PI / 180
+            const z = Math.cos(rad)
+            const scale = .68 + (z + 1) * .2
+            const media = mediaConfig[x.mediaKey]
+
+            return (
+              <button
+                key={x.slug}
+                onClick={() => navigate(/work/${x.slug})}
+                className={orbit-card art-${x.art}}
+                style={{
+                  transform: translate(-50%,-50%) translate3d(${Math.sin(rad) * 34}vw,${Math.sin(rad * .65) * 14}vh,${z * 360}px) rotateY(${-a}deg) scale(${scale}),
+                  zIndex: Math.round((z + 1) * 10),
+                  opacity: .3 + (z + 1) * .35
+                }}
+                aria-label={Open ${x.name} case study}
+              >
+                {media?.poster && (
+                  <img
+                    className="orbit-thumb"
+                    src={media.poster}
+                    alt=""
+                    loading="lazy"
+                  />
+                )}
+
+                <span className="orbit-no">{x.no}</span>
+                <span className="orbit-title">{x.name}</span>
+                <span className="orbit-meta">{x.meta}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        <div className="spiral-caption">
+          <span>
+            {projects[Math.min(2, Math.floor(p * 3))].classification}
+          </span>
+          <span>Select a frame to enter the project</span>
+        </div>
+      </div>
+    </section>
+  )
+}
 const pricing=[
   {name:'Creative Diagnostic',price:'$600',summary:'Find the communication problem before producing more creative.',items:['Brand and ad audit','Competitor and audience review','Three creative territories','Hooks and creative roadmap']},
   {name:'Brand Positioning Sprint',price:'$1,000',summary:'Give the brand a clearer position, story and system for communication.',items:['Positioning and audience definition','Brand story and messaging hierarchy','Tone of voice','Three creative territories']},
