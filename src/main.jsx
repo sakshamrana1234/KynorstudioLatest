@@ -46,16 +46,16 @@ function WorkSpiral({navigate}) {
 
             return (
               <button
-                key={x.slug}
-                onClick={() => navigate(/work/${x.slug})}
-                className={orbit-card art-${x.art}}
-                style={{
-                  transform: translate(-50%,-50%) translate3d(${Math.sin(rad) * 34}vw,${Math.sin(rad * .65) * 14}vh,${z * 360}px) rotateY(${-a}deg) scale(${scale}),
-                  zIndex: Math.round((z + 1) * 10),
-                  opacity: .3 + (z + 1) * .35
-                }}
-                aria-label={Open ${x.name} case study}
-              >
+  key={x.slug}
+  onClick={() => navigate('/work/' + x.slug)}
+  className={'orbit-card art-' + x.art}
+  style={{
+    transform: 'translate(-50%,-50%) translate3d(' + (Math.sin(rad) * 34) + 'vw,' + (Math.sin(rad * .65) * 14) + 'vh,' + (z * 360) + 'px) rotateY(' + (-a) + 'deg) scale(' + scale + ')',
+    zIndex: Math.round((z + 1) * 10),
+    opacity: .3 + (z + 1) * .35
+  }}
+  aria-label={'Open ' + x.name + ' case study'}
+>
                 {media?.poster && (
                   <img
                     className="orbit-thumb"
