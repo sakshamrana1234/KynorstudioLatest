@@ -17,6 +17,7 @@ function OpeningJourney(){const ref=useRef(null),p=useLocalProgress(ref),posterF
 function WorkSpiral({navigate}) {
   const ref = useRef(null)
   const p = useLocalProgress(ref)
+  const featuredProjects = projects.slice(0, 3)
 
   return (
     <section ref={ref} className="spiral-section" id="work">
@@ -37,7 +38,7 @@ function WorkSpiral({navigate}) {
         </header>
 
         <div className="spiral-scene">
-          {projects.map((x, i) => {
+          {featuredProjects.map((x, i) => {
             const a = i * 120 - p * 250
             const rad = a * Math.PI / 180
             const z = Math.cos(rad)
@@ -75,7 +76,7 @@ function WorkSpiral({navigate}) {
 
         <div className="spiral-caption">
           <span>
-            {projects[Math.min(2, Math.floor(p * 3))].classification}
+            {featuredProjects[Math.min(featuredProjects.length - 1, Math.floor(p * featuredProjects.length))].classification}
           </span>
           <span>Select a frame to enter the project</span>
         </div>

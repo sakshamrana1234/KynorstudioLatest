@@ -894,7 +894,7 @@ main {
 .work-index-card:nth-child(even){grid-template-columns:.75fr 1.25fr}.work-index-card:nth-child(even)>button{order:2}
 .work-index-card>button{border:0;padding:0;background:none;cursor:pointer;text-align:left}
 .work-index-card>div>span{font:8px 'DM Mono';letter-spacing:.14em;text-transform:uppercase;color:#ff5475}
-.work-index-card h2{margin:18px 0 16px;font-size:clamp(3rem,6vw,6.5rem)}
+.work-index-card h2{margin:18px 0 16px;font-size:clamp(3rem,6vw,6.5rem);line-height:1}
 .work-index-card>div>p{max-width:520px;color:rgba(255,255,255,.64);font-size:17px;line-height:1.5}
 .media-placeholder{position:relative;min-height:420px;overflow:hidden;padding:22px;color:white;border:1px solid rgba(255,255,255,.2);box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .media-placeholder>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}.media-frame{position:relative;min-height:420px;background:#050506}.media-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -943,7 +943,7 @@ button:focus-visible,a:focus-visible{outline:2px solid #ff5475;outline-offset:4p
 .signal-rail{position:absolute;right:18px;top:50%;display:flex;flex-direction:column;gap:11px;transform:translateY(-50%)}.signal-rail i{display:block;width:7px;height:1px;background:currentColor}.signal-rail i:nth-child(3n+1){width:13px;transform:translateX(-6px)}
 .crop{position:absolute;width:18px;height:18px;opacity:.65}.crop::before,.crop::after{content:"";position:absolute;background:currentColor}.crop::before{width:18px;height:1px}.crop::after{width:1px;height:18px}.crop-tl{left:17px;top:17px}.crop-br{right:17px;bottom:17px;transform:rotate(180deg)}
 .system::after,.method::after,.philosophy::after,.contact::after,.route-hero::after,.case-narrative::after{position:absolute;z-index:2;right:42px;top:42px;color:rgba(23,21,23,.38);font:7px 'DM Mono';letter-spacing:.16em;text-transform:uppercase}
-.system::after{content:'03 / STRATEGY SYSTEM · 9:16 / 1:1 / 16:9'}.method::after{content:'04 / DIAGNOSE → POSITION → PRODUCE'}.philosophy::after{content:'05 / HUMAN DIRECTION · SIGNAL A'}.contact::after{content:'06 / OPEN CHANNEL · CONTACT'}.route-hero::after{content:'INDEX / SELECTED WORK · 01—03';color:rgba(255,255,255,.38)}.case-narrative::after{content:'CASE FILE / CREATIVE DIRECTION'}
+.system::after{content:'03 / STRATEGY SYSTEM · 9:16 / 1:1 / 16:9'}.method::after{content:'04 / DIAGNOSE → POSITION → PRODUCE'}.philosophy::after{content:'05 / HUMAN DIRECTION · SIGNAL A'}.contact::after{content:'06 / OPEN CHANNEL · CONTACT'}.route-hero::after{content:'INDEX / SELECTED WORK · 01—13';color:rgba(255,255,255,.38)}.case-narrative::after{content:'CASE FILE / CREATIVE DIRECTION'}
 .orbit-card::before{content:'+';position:absolute;z-index:3;right:14px;top:11px;color:rgba(255,255,255,.62);font:11px 'DM Mono'}.orbit-card{background-blend-mode:normal}
 .media-placeholder::before{content:'⌜                                      ⌝';position:absolute;z-index:3;left:18px;right:18px;top:14px;color:rgba(255,255,255,.5);font:9px 'DM Mono';white-space:pre;overflow:hidden}
 @media(max-width:760px){.signal-status,.signal-frame{top:61px}.signal-status{left:22px}.signal-frame{right:22px}.signal-coords,.signal-rail,.crop{display:none}.system::after,.method::after,.philosophy::after,.contact::after,.route-hero::after,.case-narrative::after{right:22px;top:28px;max-width:58vw;text-align:right}}
